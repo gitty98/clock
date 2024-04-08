@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            background-color: wheat;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        span, #hour, #min, #second, #time {
+            border: 2px solid green;
+            display: inline-block;
+            text-align: center;
+            font-size: 2rem;
+            padding: 10px;
+        }
+        span {            
+            border: transparent;
+        }
+    </style>
+</head>
+<body>
+    <span id="hour">00</span><span>:</span>
+    <span id="min">00</span><span>:</span>
+    <span id="second">00</span><span id="time">PM</span>
+    <script>
+        function time() {
+            let time = new Date();
+            document.querySelector('#hour').textContent = time.getHours();
+            document.querySelector('#min').textContent = time.getMinutes();
+            document.querySelector('#second').textContent = time.getSeconds();
+            if(time.getHours() >= 12) document.querySelector('#time').textContent ="PM";                
+            else document.querySelector('#time').textContent = "AM";
+        }
+        setInterval(()=> time(), 1000);
+        
+    </script>
+</body>
+</html>
